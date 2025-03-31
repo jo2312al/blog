@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Wireframe</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Custom CSS for minor adjustments -->
+    <style>
+        .placeholder-img {
+            background-color: #e9ecef;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dee2e6;
+        }
+        .comment-box {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-purple {
+            background-color: #6f42c1;
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #5a32a3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary ms-2">Iniciar sesion</button>
+                        <button class="btn btn-primary ms-2">Registrar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <!-- Main Post Section -->
+            <div class="col-md-8">
+                <!-- Post Header -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Post Title</li>
+                    </ol>
+                </nav>
+                <h1>Post Title</h1>
+                <p class="text-muted">Autor | Categoría | a min ago</p>
+
+                <!-- Main Image -->
+                <div class="placeholder-img mb-3">
+                    <span>Main Image Placeholder</span>
+                </div>
+
+                <!-- Post Content -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nibh, interdum non enim sit amet, iaculis aliquet nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam sit amet ipsum ac velit eget iaculis finibus egestas. Nam viverra urna a odio quis efficitur malesuada. Maecenas rhoncus enim eu consectetur rutrum. Pellentesque mollis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed commodo leo. Suspendisse potenti. Maecenas gravida ipsum placerat ligula posuere, ut rhoncus velit eleifend.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nibh, interdum non enim sit amet, iaculis aliquet nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam sit amet ipsum ac velit eget iaculis finibus egestas. Nam viverra urna a odio quis efficitur malesuada. Maecenas rhoncus enim eu consectetur rutrum. Pellentesque mollis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed commodo leo. Suspendisse potenti. Maecenas gravida ipsum placerat ligula posuere, ut rhoncus velit eleifend.</p>
+
+                <!-- Share Section -->
+                <div class="d-flex align-items-center my-3">
+                    <span class="me-3">Share this</span>
+                    <a href="#" class="me-2"><img src="facebook-icon.png" alt="Facebook" style="width: 24px;"></a>
+                    <a href="#" class="me-2"><img src="instagram-icon.png" alt="Instagram" style="width: 24px;"></a>
+                </div>
+
+                <!-- More Articles -->
+                <h3>Más artículos</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="placeholder-img mb-2">
+                            <span>Image Placeholder</span>
+                        </div>
+                        <h5>Post Title</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="placeholder-img mb-2">
+                            <span>Image Placeholder</span>
+                        </div>
+                        <h5>Post Title</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="placeholder-img mb-2">
+                            <span>Image Placeholder</span>
+                        </div>
+                        <h5>Post Title</h5>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                <h3>Comments</h3>
+                <!-- Comment Form with WYSIWYG Placeholder -->
+                <div class="mb-3">
+                    <textarea class="form-control" id="commentEditor" rows="3" placeholder="Escribe el comentario"></textarea>
+                    <button class="btn btn-purple mt-2">Comentar</button>
+                </div>
+
+                <!-- Sample Comments -->
+                <div class="comment-box">
+                    <div class="d-flex align-items-center">
+                        <img src="user-icon.png" alt="User" class="rounded-circle me-2" style="width: 40px;">
+                        <div>
+                            <strong>Username</strong>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nibh, interdum non enim sit amet, iaculis aliquet nunc.</p>
+                            <small class="text-muted">a min ago</small> | <a href="#" class="text-primary">Reply</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <div class="d-flex align-items-center">
+                        <img src="user-icon.png" alt="User" class="rounded-circle me-2" style="width: 40px;">
+                        <div>
+                            <strong>Username</strong>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nibh, interdum non enim sit amet, iaculis aliquet nunc.</p>
+                            <small class="text-muted">a min ago</small> | <a href="#" class="text-primary">Reply</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <div class="d-flex align-items-center">
+                        <img src="user-icon.png" alt="User" class="rounded-circle me-2" style="width: 40px;">
+                        <div>
+                            <strong>Username</strong>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nibh, interdum non enim sit amet, iaculis aliquet nunc.</p>
+                            <small class="text-muted">a min ago</small> | <a href="#" class="text-primary">Reply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <h3>Artículos recomendados</h3>
+                <div class="mb-3">
+                    <div class="placeholder-img mb-2" style="height: 100px;">
+                        <span>Image Placeholder</span>
+                    </div>
+                    <h5>Post Title</h5>
+                </div>
+                <div class="mb-3">
+                    <div class="placeholder-img mb-2" style="height: 100px;">
+                        <span>Image Placeholder</span>
+                    </div>
+                    <h5>Post Title</h5>
+                </div>
+                <div class="mb-3">
+                    <div class="placeholder-img mb-2" style="height: 100px;">
+                        <span>Image Placeholder</span>
+                    </div>
+                    <h5>Post Title</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>CANACINTRA</h3>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="text-white">Additional Link</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="text-white">Additional Link</a>
+                </div>
+                <div class="col-md-3 text-end">
+                    <p>© Your Company 2022, we love you!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- Placeholder for WYSIWYG Editor (e.g., TinyMCE) -->
+    <!-- Uncomment and add the script for your preferred WYSIWYG editor -->
+    <!-- Example for TinyMCE -->
+    <!--
+    <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#commentEditor',
+            height: 200,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image'
+        });
+    </script>
+    -->
+</body>
+</html>

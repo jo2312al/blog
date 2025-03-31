@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escribir Nuevo Artículo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CKEditor -->
+    <script src="https://cdn.ckeditor.com/4.25.1-lts/standard/ckeditor.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+       <!-- Navigation Bar -->
+       <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary">Iniciar sesion</button>
+                        <button class="btn btn-primary">Registrar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulario -->
+    <div class="container form-container">
+        <h2 class="mb-4">Escribir nuevo artículo</h2>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Escribir Artículo</li>
+            </ol>
+        </nav>
+
+        <form>
+            <!-- Título -->
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Enter a descriptive title">
+            </div>
+
+            <!-- Categoría -->
+            <div class="mb-3">
+                <label for="categoria" class="form-label">Categoría</label>
+                <select class="form-select" id="categoria">
+                    <option selected>Select a category</option>
+                    <option value="1">Arte</option>
+                    <option value="2">Música</option>
+                    <option value="3">Tecnología</option>
+                </select>
+            </div>
+
+            <!-- Imagen -->
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen</label>
+                <div class="card p-3" style="background-color: #f3e5f5; border-radius: 10px;">
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                        </div>
+                        <div>
+                            <p class="mb-1">Upload a high-quality image (recommended size: 1200x630px)</p>
+                            <input type="file" id="imagen" class="d-none">
+                            <button type="button" class="btn btn-purple" onclick="document.getElementById('imagen').click()">Upload image</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido con WYSIWYG -->
+            <div class="mb-3">
+                <label for="contenido" class="form-label">Contenido</label>
+                <textarea class="form-control" id="contenido" rows="5" placeholder="Write your article content here..."></textarea>
+            </div>
+
+            <!-- Botones -->
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <button type="submit" class="btn btn-purple">Publicar</button>
+                    <button type="button" class="btn btn-light-purple">Borrador</button>
+                    <button type="button" class="btn btn-link">Preview</button>
+                </div>
+                <div>
+                    <a href="#" class="text-muted">tag</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>CANACINTRA</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="text-white">Additional Link</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="text-white">Additional Link</a>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <p>© Your Company 2022, we love you!</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Inicializar CKEditor -->
+    <script>
+        CKEDITOR.replace('contenido');
+    </script>
+</body>
+</html>
