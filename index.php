@@ -3,10 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Canacintra Wireframe</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
 </head>
 <body>
-    <?php require_once __DIR__ . '/vendor/sergeytsalkov/meekrodb/db.class.php';
-?>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary">Iniciar sesion</button>
+                        <button class="btn btn-primary">Registrar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-12">
+                <h1>Canacintra</h1>
+                <p class="text-muted">Tabasco (banner)</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
+                      </div>
+                      <div class="carousel-item">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+                      </div>
+                      <div class="carousel-item">
+                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="container">
+        <h3>Categorias</h3>
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-2 col-6">
+                <div class="cat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M64 32C46.3 32 32 46.3 32 64l0 240 0 48 0 80c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-128 0-151.8c0-18.2-19.4-29.7-35.4-21.1L352 215.4l0-63.2c0-18.2-19.4-29.7-35.4-21.1L160 215.4 160 64c0-17.7-14.3-32-32-32L64 32z"/></svg>
+                    <div class="cat-label">Industria</div>
+                    <div class="cat-description">Sector manufacturero</div>
+                </div>
+            </div>
+            <!-- Categoría 2: Energía -->
+            <div class="col-md-2 col-6">
+                <div class="cat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"/></svg>
+                    <div class="cat-label">Energía</div>
+                    <div class="cat-description">Renovable y convencional</div>
+                </div>
+            </div>
+            <!-- Categoría 3: Tecnología -->
+            <div class="col-md-2 col-6">
+                <div class="cat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm192 32l-192 0 0 192 192 0 0-192z"/></svg>                    <div class="cat-label">Tecnología</div>
+                    <div class="cat-description">Innovación y software</div>
+                </div>
+            </div>
+            <!-- Categoría 4: Transporte -->
+            <div class="col-md-2 col-6">
+                <div class="cat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M288 0C422.4 0 512 35.2 512 80l0 16 0 32c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32l0 160c0 17.7-14.3 32-32 32l0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-192 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32c-17.7 0-32-14.3-32-32l0-160c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32c0 0 0 0 0 0l0-32s0 0 0 0l0-16C64 35.2 153.6 0 288 0zM128 160l0 96c0 17.7 14.3 32 32 32l112 0 0-160-112 0c-17.7 0-32 14.3-32 32zM304 288l112 0c17.7 0 32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-112 0 0 160zM144 400a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm288 0a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM384 80c0-8.8-7.2-16-16-16L208 64c-8.8 0-16 7.2-16 16s7.2 16 16 16l160 0c8.8 0 16-7.2 16-16z"/></svg>                    <div class="cat-label">Transporte</div>
+                    <div class="cat-description">Logística y movilidad</div>
+                </div>
+            </div>
+            <!-- Categoría 5: Construcción -->
+            <div class="col-md-2 col-6">
+                <div class="cat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M352 320c88.4 0 160-71.6 160-160c0-15.3-2.2-30.1-6.2-44.2c-3.1-10.8-16.4-13.2-24.3-5.3l-76.8 76.8c-3 3-7.1 4.7-11.3 4.7L336 192c-8.8 0-16-7.2-16-16l0-57.4c0-4.2 1.7-8.3 4.7-11.3l76.8-76.8c7.9-7.9 5.4-21.2-5.3-24.3C382.1 2.2 367.3 0 352 0C263.6 0 192 71.6 192 160c0 19.1 3.4 37.5 9.5 54.5L19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L297.5 310.5c17 6.2 35.4 9.5 54.5 9.5zM80 408a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                    <div class="cat-label">Construcción</div>
+                    <div class="cat-description">Infraestructura</div>
+                </div>
+            </div>
+            <!-- Categoría 6: Agroindustria -->
+            <div class="col-md-2 col-6">
+                <div class="cat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M96 64c0-35.3 28.7-64 64-64L266.3 0c26.2 0 49.7 15.9 59.4 40.2L373.7 160 480 160l0-33.8c0-24.8 5.8-49.3 16.9-71.6l2.5-5c7.9-15.8 27.1-22.2 42.9-14.3s22.2 27.1 14.3 42.9l-2.5 5c-6.7 13.3-10.1 28-10.1 42.9l0 33.8 56 0c22.1 0 40 17.9 40 40l0 45.4c0 16.5-8.5 31.9-22.6 40.7l-43.3 27.1c-14.2-5.9-29.8-9.2-46.1-9.2c-39.3 0-74.1 18.9-96 48l-80 0c0 17.7-14.3 32-32 32l-8.2 0c-1.7 4.8-3.7 9.5-5.8 14.1l5.8 5.8c12.5 12.5 12.5 32.8 0 45.3l-22.6 22.6c-12.5 12.5-32.8 12.5-45.3 0l-5.8-5.8c-4.6 2.2-9.3 4.1-14.1 5.8l0 8.2c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-8.2c-4.8-1.7-9.5-3.7-14.1-5.8l-5.8 5.8c-12.5 12.5-32.8 12.5-45.3 0L40.2 449.1c-12.5-12.5-12.5-32.8 0-45.3l5.8-5.8c-2.2-4.6-4.1-9.3-5.8-14.1L32 384c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l8.2 0c1.7-4.8 3.7-9.5 5.8-14.1l-5.8-5.8c-12.5-12.5-12.5-32.8 0-45.3l22.6-22.6c9-9 21.9-11.5 33.1-7.6l0-.6 0-32 0-96zm170.3 0L160 64l0 96 32 0 112.7 0L266.3 64zM176 256a80 80 0 1 0 0 160 80 80 0 1 0 0-160zM528 448a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm0 64c-48.6 0-88-39.4-88-88c0-29.8 14.8-56.1 37.4-72c14.3-10.1 31.8-16 50.6-16c2.7 0 5.3 .1 7.9 .3c44.9 4 80.1 41.7 80.1 87.7c0 48.6-39.4 88-88 88z"/></svg>
+                    <div class="cat-label">Agroindustria</div>
+                    <div class="cat-description">Producción agrícola</div>
+                </div>
+            </div>
+    </div>
+
+    <!-- Articles Section with Sidebar -->
+    <div class="container my-4">
+        <div class="row">
+            <!-- Articles -->
+            <div class="col">
+                <h3>Articulos</h3>
+                <div class="row row-cols-6">
+                    <div class="col">
+                        <div class="custom-card"> 
+                            <div class="placeholder-image"></div>
+                            <h5 class="card-title">3 Easy Way To Make Div Center</h5>
+                            <div class="card-meta">
+                                <img src="https://via.placeholder.com/30" alt="Author Avatar">
+                                <span>Dasteen • Jan 10, 2022 • 3 Min Read</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-card"> 
+                            <div class="placeholder-image"></div>
+                            <h5 class="card-title">3 Easy Way To Make Div Center</h5>
+                            <div class="card-meta">
+                                <img src="https://via.placeholder.com/30" alt="Author Avatar">
+                                <span>Dasteen • Jan 10, 2022 • 3 Min Read</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-card"> 
+                            <div class="placeholder-image"></div>
+                            <h5 class="card-title">3 Easy Way To Make Div Center</h5>
+                            <div class="card-meta">
+                                <img src="https://via.placeholder.com/30" alt="Author Avatar">
+                                <span>Dasteen • Jan 10, 2022 • 3 Min Read</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-card"> 
+                            <div class="placeholder-image"></div>
+                            <h5 class="card-title">3 Easy Way To Make Div Center</h5>
+                            <div class="card-meta">
+                                <img src="https://via.placeholder.com/30" alt="Author Avatar">
+                                <span>Dasteen • Jan 10, 2022 • 3 Min Read</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-card"> 
+                            <div class="placeholder-image"></div>
+                            <h5 class="card-title">3 Easy Way To Make Div Center</h5>
+                            <div class="card-meta">
+                                <img src="https://via.placeholder.com/30" alt="Author Avatar">
+                                <span>Dasteen • Jan 10, 2022 • 3 Min Read</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-card"> 
+                            <div class="placeholder-image"></div>
+                            <h5 class="card-title">3 Easy Way To Make Div Center</h5>
+                            <div class="card-meta">
+                                <img src="https://via.placeholder.com/30" alt="Author Avatar">
+                                <span>Dasteen • Jan 10, 2022 • 3 Min Read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="text-primary">Ver Todos Los Articulos</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>CANACINTRA</p>
+        <p>
+            <a href="#" class="text-white">Additional Link</a> |
+            <a href="#" class="text-white">Additional Link</a> |
+            <a href="#" class="text-white">Additional Link</a>
+        </p>
+        <p>&copy; Your Company 2022. We love you!</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

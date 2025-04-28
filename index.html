@@ -8,164 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <!-- Custom CSS for placeholders and styling -->
-    <style>
-        /* Placeholder styles */
-        .placeholder-box {
-            background-color: #e0e0e0;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: bold;
-        }
-        .banner-placeholder {
-            background-color: #d4b8ff;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            position: relative;
-        }
-        .category-box {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .footer {
-            background-color: #4b0082;
-            color: white;
-            padding: 20px 0;
-        }
-        /* Custom styles to match wireframe */
-        .navbar {
-            background-color: #fff;
-        }
-        .navbar-brand {
-            font-weight: bold;
-        }
-        .btn-primary {
-            background-color: #6f42c1;
-            border-color: #6f42c1;
-        }
-        .category-box img {
-            width: 50px;
-            height: 50px;
-        }
-        .banner-placeholder .carousel-control-prev,
-        .banner-placeholder .carousel-control-next {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: white;
-        }
-        .banner-placeholder .carousel-control-prev {
-            left: 10px;
-        }
-        .banner-placeholder .carousel-control-next {
-            right: 10px;
-        }
-        .article-meta {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        .custom-card {
-            max-width: 300px; /* Adjust based on the wireframe size */
-            margin: 0 auto;
-        }
-        /* Placeholder image */
-        .placeholder-image {
-            background-color: #e0e0e0;
-            height: 150px;
-            position: relative;
-            overflow: hidden;
-        }
-        .placeholder-image::before,
-        .placeholder-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #ccc;
-        }
-        .placeholder-image::before {
-            left: 0;
-            right: 0;
-            transform: rotate(45deg);
-        }
-        .placeholder-image::after {
-            left: 0;
-            right: 0;
-            transform: rotate(-45deg);
-        }
-        /* Title */
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-        /* Metadata */
-        .card-meta {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        .card-meta img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .cat-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            margin-bottom: 15px;
-            background-color: #fff;
-            transition: box-shadow 0.3s ease;
-        }
-        .cat-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        /* Category icon */
-        .cat-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-        /* Category label (e.g., "JS") */
-        .cat-label {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        /* Category description (e.g., "Javascript") */
-        .cat-description {
-            font-size: 0.9rem;
-            color: #333;
-        }
-        /* Link style for "Todas Las Categorias" */
-        .cat-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            font-size: 1rem;
-            color: #007bff;
-            text-decoration: none;
-        }
-        .cat-link:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -364,24 +206,14 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>CANACINTRA</h3>
-                </div>
-                <div class="col-md-3">
-                    <a href="#" class="text-white">Additional Link</a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#" class="text-white">Additional Link</a>
-                </div>
-                <div class="col-md-3 text-end">
-                    <p>© Your Company 2022, we love you!</p>
-                </div>
-            </div>
-        </div>
+    <footer>
+        <p>CANACINTRA</p>
+        <p>
+            <a href="#" class="text-white">Additional Link</a> |
+            <a href="#" class="text-white">Additional Link</a> |
+            <a href="#" class="text-white">Additional Link</a>
+        </p>
+        <p>&copy; Your Company 2022. We love you!</p>
     </footer>
 
     <!-- Bootstrap JS -->

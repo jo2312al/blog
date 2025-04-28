@@ -7,26 +7,26 @@ DB::$dbName = 'canacintra';
 DB::$host = 'localhost';
 DB::$encoding = 'utf8';
 
-class archivo {
+class publicacion_archivo {
 
     public static function create($data) {
-        DB::insert('archivo', $data);
+        DB::insert('publicacion_archivo', $data);
         return DB::insertId(); // Devuelve el ID del usuario creado
     }
 
     // Leer un usuario por ID
     public static function read($id) {
-        return DB::queryFirstRow("SELECT * FROM archivo WHERE id = %i", $id);
+        return DB::queryFirstRow("SELECT * FROM publicacion_archivo WHERE id = %i", $id);
     }
 
     // Actualizar un usuario por ID
     public static function update($id, $data) {
-        DB::update('archivo', $data, "id = %i", $id);
+        DB::update('publicacion_archivo', $data, "id = %i", $id);
     }
 
     // Eliminar un usuario por ID
     public static function delete($id) {
-        DB::delete('archivo', "id = %i", $id);
+        DB::delete('publicacion_archivo', "id = %i", $id);
     }
 
 

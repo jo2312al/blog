@@ -8,13 +8,12 @@
 .main-content {
     flex: 1;
 }
-.footer {
-    background-color: #4b0082;
+footer {
+    background-color: #6a2982;
     color: white;
-    padding: 1rem 0;
+    padding: 20px 0;
     text-align: center;
 }
-
 
      /* Category card container */
       .category-card {
@@ -286,4 +285,14 @@ html, body {
     background-color: #e2d6f5;
     border-color: #e2d6f5;
     color: #6f42c1;
+}
+
+.dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
