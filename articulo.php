@@ -156,7 +156,7 @@
 
                 <div class="d-flex align-items-center my-3">
                     <span class="me-3">Compartir</span>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode('http://localhost/blog/ver_publicacion.php?id=' . $publicacion_id) ?>" class="me-2" target="_blank">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode('http://localhost/blog/articulo.php?id=' . $publicacion_id) ?>" class="me-2" target="_blank">
                         <i class="fab fa-facebook-f fa-2x"></i>
                     </a>
                     <a href="https://www.instagram.com/" class="me-2" target="_blank">
@@ -173,7 +173,7 @@
                             <?php else: ?>
                                 <div class="placeholder-img mb-2" style="height: 100px;">Imagen</div>
                             <?php endif; ?>
-                            <h5><a href="ver_publicacion.php?id=<?= $rel['id'] ?>"><?= htmlspecialchars($rel['titulo']) ?></a></h5>
+                            <h5><a href="articulo.php?id=<?= $rel['id'] ?>"><?= htmlspecialchars($rel['titulo']) ?></a></h5>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -211,7 +211,7 @@
                         <?php else: ?>
                             <div class="placeholder-img mb-2" style="height: 100px;">Imagen</div>
                         <?php endif; ?>
-                        <h5><a href="ver_publicacion.php?id=<?= $rec['id'] ?>"><?= htmlspecialchars($rec['titulo']) ?></a></h5>
+                        <h5><a href="articulo.php?id=<?= $rec['id'] ?>"><?= htmlspecialchars($rec['titulo']) ?></a></h5>
                     </div>
                 <?php endforeach; ?>
             </div>

@@ -296,3 +296,59 @@ html, body {
     margin-left: auto;
     margin-right: auto;
 }
+/* Asegurar que el footer esté al final de la página */
+body {
+    margin: 0; /* Evitar márgenes por defecto */
+}
+
+.d-flex.flex-column.min-vh-100 {
+    min-height: 100vh; /* Altura mínima de la ventana */
+}
+
+.flex-grow-1 {
+    flex-grow: 1; /* Hacer que el contenido principal crezca */
+}
+
+footer {
+    background-color: #6a2982; /* Color morado del footer */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos de contacto.php */
+.contact-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.contact-container h2 {
+    background-color: #a000ff;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.form-control {
+    border: 2px solid #a000ff;
+    border-radius: 5px;
+}
+
+.btn-custom {
+    background-color: #a000ff;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: none;
+}

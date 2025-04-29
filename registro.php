@@ -11,30 +11,30 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Logo</a>
+       <!-- Navigation Bar -->
+       <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container" style="margin-left: 5%;">
+            <a class="navbar-brand" href="index.php">CANACINTRA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categorias</a>
+                        <a class="nav-link active" href="categorias.php">Categorías</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre nosotros</a>
+                        <a class="nav-link" href="sobrenosotros.php">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contactanos</a>
+                        <a class="nav-link" href="contacto.php">Contáctanos</a>
                     </li>
-                    <li class="nav-item">
-                        <button class="btn btn-primary">Iniciar sesion</button>
-                        <button class="btn btn-primary">Registrar</button>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="iniciar.php" class="btn btn-primary btn-md me-2">Iniciar sesión</a>
+                        <a href="registro.php" class="btn btn-primary btn-md">Registrar</a>
                     </li>
                 </ul>
             </div>
@@ -65,26 +65,24 @@
             <button type="submit" class="btn btn-signin">Registrar</button>
         </form>
     </div>
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h3>CANACINTRA</h3>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#" class="text-white">Additional Link</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#" class="text-white">Additional Link</a>
-                    </div>
-                    <div class="col-md-3 text-end">
-                        <p>© Your Company 2022, we love you!</p>
-                    </div>
+    <!-- Footer -->
+    <footer class="mt-auto">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h3 class="mb-0">CANACINTRA</h3>
+                </div>
+                <div>
+                    <a href="#" class="me-3">Enlace adicional</a>
+                    <a href="#" class="me-3">Enlace adicional</a>
+                    <a href="#">Enlace adicional</a>
+                </div>
+                <div>
+                    <small>© CANACINTRA 2025</small>
                 </div>
             </div>
-        </footer>
-    
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

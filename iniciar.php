@@ -34,28 +34,28 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Logo</a>
+        <div class="container" style="margin-left: 5%;">
+            <a class="navbar-brand" href="index.php">CANACINTRA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categorias</a>
+                        <a class="nav-link active" href="categorias.php">Categorías</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre nosotros</a>
+                        <a class="nav-link" href="sobrenosotros.php">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contactanos</a>
+                        <a class="nav-link" href="contacto.php">Contáctanos</a>
                     </li>
-                    <li class="nav-item">
-                        <button class="btn btn-primary ms-2">Iniciar sesion</button>
-                        <button class="btn btn-primary ms-2">Registrar</button>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="iniciar.php" class="btn btn-primary btn-md me-2">Iniciar sesión</a>
+                        <a href="registro.php" class="btn btn-primary btn-md">Registrar</a>
                     </li>
                 </ul>
             </div>

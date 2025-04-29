@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Contacto | Canacintra</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         body {
             background-color: #fff;
+            margin: 0; /* Evitar márgenes por defecto */
         }
         .contact-container {
             max-width: 600px;
@@ -39,44 +40,49 @@
             padding: 20px 0;
             text-align: center;
         }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Logo</a>
+        <div class="container" style="margin-left: 5%;">
+            <a class="navbar-brand" href="index.php">CANACINTRA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="categorias.html">Categorias</a>
+                        <a class="nav-link" href="categorias.php">Categorías</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sobrenosotros.html">Sobre nosotros</a>
+                        <a class="nav-link" href="sobrenosotros.php">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contactanos</a>
+                        <a class="nav-link active" href="contacto.php">Contáctanos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="iniciar.html">
-                        <button class="btn btn-primary">Iniciar sesion</button>
-                        </a>
-                        <a class="nav-link" href="registro.html">
-                        <button class="btn btn-primary">Registrar</button>
-                        </a>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="iniciar.php" class="btn btn-primary btn-md me-2">Iniciar sesión</a>
+                        <a href="registro.php" class="btn btn-primary btn-md">Registrar</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
-    <div class="contact-container">
-        <h2>Contactanos</h2>
+
+    <!-- Main Content -->
+    <div class="contact-container flex-grow-1">
+        <h2>Contáctanos</h2>
         <form>
             <div class="mb-3 d-flex">
                 <input type="text" class="form-control me-2" placeholder="Nombre">
@@ -91,17 +97,22 @@
             <button type="submit" class="btn btn-custom">Enviar</button>
         </form>
     </div>
-    
-    <footer>
-        <p>CANACINTRA</p>
-        <p>
-            <a href="#" class="text-white">Additional Link</a> |
-            <a href="#" class="text-white">Additional Link</a> |
-            <a href="#" class="text-white">Additional Link</a>
-        </p>
-        <p>&copy; Your Company 2022. We love you!</p>
+
+    <!-- Footer -->
+    <footer class="mt-auto">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-1">CANACINTRA</p>
+                <p class="mb-1">
+                    <a href="#">Enlace adicional</a> |
+                    <a href="#">Enlace adicional</a> |
+                    <a href="#">Enlace adicional</a>
+                </p>
+                <p class="mb-0">© CANACINTRA 2025</p>
+            </div>
+        </div>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
