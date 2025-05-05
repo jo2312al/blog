@@ -1,44 +1,62 @@
 <?php
-require_once 'vendor/autoload.php'; 
+require_once 'db.php';
 
-DB::$user = 'root'; 
-DB::$password = '';  
-DB::$dbName = 'canacintra';
-DB::$host = 'localhost';
-DB::$encoding = 'utf8';
-
-class publicacion {
-
-    public static function create($data) {
-        DB::insert('publicacion', $data);
-        return DB::insertId(); // Devuelve el ID del usuario creado
-    }
-
-    // Leer un usuario por ID
-    public static function read($id) {
-        return DB::queryFirstRow("SELECT * FROM publicacion WHERE id = %i", $id);
-    }
-
-    // Actualizar un usuario por ID
-    public static function update($id, $data) {
-        DB::update('publicacion', $data, "id = %i", $id);
-    }
-
-    // Eliminar un usuario por ID
-    public static function delete($id) {
-        DB::delete('publicacion', "id = %i", $id);
-    }
-
-
-    public static function listAll() {
-        return DB::query("
-            SELECT p.*, u.username AS usuario, c.nombre AS categoria, e.nombre AS estatus, a.nombre AS foto_portada
-            FROM publicacion p
-            JOIN user u ON p.fk_user = u.id
-            JOIN categoria c ON p.fk_categoria = c.id
-            JOIN estatu e ON p.fk_estatu = e.id
-            JOIN archivo a ON p.fk_foto_portada = a.id
-        ");
-    }
+$publicacion_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+if ($publicacion_id <= 0) {
+    header('Location: index.php');
+    exit;
 }
+
+// Obtener las vistas usando vista.php
+$vistas = include 'vista.php';
+
+$publicacion = DB::queryFirstRow("
+    SELECT p.id, p.titulo, p.contenido, p.created, p.fk_foto_portada, p.fk_categoria, p.fk_user,
+           a.ruta AS foto_ruta, c.nombre AS categoria_nombre, u.username AS autor_nombre
+    FROM publicacion p
+    LEFT JOIN archivo a ON p.fk_foto_portada = a.id
+    LEFT JOIN categoria c ON p.fk_categoria = c.id
+    LEFT JOIN user u ON p.fk_user = u.id
+    WHERE p.id = %i AND p.fk_estatu = 2", $publicacion_id
+);
+
+if (!$publicacion) {
+    header('Location: index.php');
+    exit;
+}
+
+$relacionados = DB::query("
+    SELECT p.id, p.titulo, a.ruta AS foto_ruta
+    FROM publicacion p
+    LEFT JOIN archivo a ON p.fk_foto_portada = a.id
+    WHERE p.fk_categoria = %i AND p.id != %i AND p.fk_estatu = 2
+    LIMIT 4", $publicacion['fk_categoria'], $publicacion_id
+);
+
+$recomendados = DB::query("
+    SELECT p.id, p.titulo, a.ruta AS foto_ruta
+    FROM publicacion p
+    LEFT JOIN archivo a ON p.fk_foto_portada = a.id
+    WHERE p.id != %i AND p.fk_estatu = 2
+    ORDER BY p.created DESC
+    LIMIT 4", $publicacion_id
+);
+
+$comentarios = DB::query("
+    SELECT c.id, c.contenido, c.created, u.username AS autor_nombre
+    FROM comentario c
+    LEFT JOIN user u ON c.fk_user = u.id
+    WHERE c.fk_publicacion = %i AND c.fk_estatu = 1
+    ORDER BY c.created DESC", $publicacion_id
+);
+
+$adicionales = DB::query("
+    SELECT a.ruta
+    FROM publicacion_archivo pa
+    JOIN archivo a ON pa.fk_archivo = a.id
+    WHERE pa.fk_publicacion = %i AND a.id != %i", $publicacion_id, $publicacion['fk_foto_portada']
+);
+
+// Incluir la vista
+include 'articulo.php';
 ?>

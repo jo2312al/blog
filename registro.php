@@ -1,45 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In Form</title>
-    <!-- Bootstrap CSS -->
+    <title>Registro - Canacintra</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-
 </head>
 <body>
-
-       <!-- Navigation Bar -->
-       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container" style="margin-left: 5%;">
-            <a class="navbar-brand" href="index.php">CANACINTRA</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="categorias.php">Categorías</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sobrenosotros.php">Sobre nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.php">Contáctanos</a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center">
-                        <a href="iniciar.php" class="btn btn-primary btn-md me-2">Iniciar sesión</a>
-                        <a href="registro.php" class="btn btn-primary btn-md">Registrar</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?php include 'navbar.php'; ?>
 
     <!-- Sign In Form -->
     <div class="signin-container">
@@ -49,22 +18,63 @@
             <p>Tabasco</p>
         </div>
         <!-- Form -->
-        <form>
+        <?php
+        require_once 'crud/user.php';
+
+        $mensaje = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $confirm_password = $_POST['confirm_password'];
+
+            // Validar que las contraseñas coincidan
+            if ($password !== $confirm_password) {
+                $mensaje = '<div class="alert alert-danger">Las contraseñas no coinciden.</div>';
+            } else {
+                // Verificar si el email o username ya existen
+                $usuarioExistente = DB::queryFirstRow("SELECT * FROM user WHERE email = %s OR username = %s", $email, $username);
+                if ($usuarioExistente) {
+                    $mensaje = '<div class="alert alert-danger">El email o username ya están registrados.</div>';
+                } else {
+                    // Crear el usuario
+                    $data = [
+                        'email' => $email,
+                        'username' => $username,
+                        'password' => password_hash($password, PASSWORD_DEFAULT),
+                        'status' => 'activo', // Estado por defecto
+                        'fk_rol' => 2 // Rol por defecto (por ejemplo, 2 para usuario normal)
+                    ];
+                    try {
+                        user::create($data);
+                        $mensaje = '<div class="alert alert-success">Usuario registrado exitosamente. <a href="iniciar.php">Inicia sesión</a>.</div>';
+                    } catch (Exception $e) {
+                        $mensaje = '<div class="alert alert-danger">Error al registrar: ' . $e->getMessage() . '</div>';
+                    }
+                }
+            }
+        }
+        ?>
+        <?php if ($mensaje): ?>
+            <?php echo $mensaje; ?>
+        <?php endif; ?>
+        <form method="POST">
             <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Email" required>
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Username" required>
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Confirm Password" required>
+                <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
             </div>
             <button type="submit" class="btn btn-signin">Registrar</button>
         </form>
     </div>
+
     <!-- Footer -->
     <footer class="mt-auto">
         <div class="container">
@@ -83,6 +93,7 @@
             </div>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

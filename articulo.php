@@ -1,13 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+// Prevenir caché en desarrollo
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+require_once 'vendor/autoload.php';
+DB::$user = 'root';
+DB::$password = '';
+DB::$dbName = 'canacintra';
+DB::$host = 'localhost';
+DB::$encoding = 'utf8';
+
+$publicacion_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+if ($publicacion_id <= 0) {
+    header('Location: index.php');
+    exit;
+}
+
+// Incrementar el contador de vistas
+DB::query("UPDATE publicacion SET vistas = vistas + 1 WHERE id = %i", $publicacion_id);
+
+$publicacion = DB::queryFirstRow("
+    SELECT p.id, p.titulo, p.contenido, p.created, p.vistas, p.fk_foto_portada, p.fk_categoria, p.fk_user,
+           a.ruta AS foto_ruta, c.nombre AS categoria_nombre, u.username AS autor_nombre
+    FROM publicacion p
+    LEFT JOIN archivo a ON p.fk_foto_portada = a.id
+    LEFT JOIN categoria c ON p.fk_categoria = c.id
+    LEFT JOIN user u ON p.fk_user = u.id
+    WHERE p.id = %i AND p.fk_estatu = 2", $publicacion_id
+);
+if (!$publicacion) {
+    header('Location: index.php');
+    exit;
+}
+
+$relacionados = DB::query("
+    SELECT p.id, p.titulo, a.ruta AS foto_ruta
+    FROM publicacion p
+    LEFT JOIN archivo a ON p.fk_foto_portada = a.id
+    WHERE p.fk_categoria = %i AND p.id != %i AND p.fk_estatu = 2
+    LIMIT 4", $publicacion['fk_categoria'], $publicacion_id
+);
+
+$recomendados = DB::query("
+    SELECT p.id, p.titulo, a.ruta AS foto_ruta
+    FROM publicacion p
+    LEFT JOIN archivo a ON p.fk_foto_portada = a.id
+    WHERE p.id != %i AND p.fk_estatu = 2
+    ORDER BY p.created DESC
+    LIMIT 4", $publicacion_id
+);
+
+$comentarios = DB::query("
+    SELECT c.id, c.contenido, c.created, u.username AS autor_nombre
+    FROM comentario c
+    LEFT JOIN user u ON c.fk_user = u.id
+    WHERE c.fk_publicacion = %i AND c.fk_estatu = 1
+    ORDER BY c.created DESC", $publicacion_id
+);
+
+$adicionales = DB::query("
+    SELECT a.ruta
+    FROM publicacion_archivo pa
+    JOIN archivo a ON pa.fk_archivo = a.id
+    WHERE pa.fk_publicacion = %i AND a.id != %i", $publicacion_id, $publicacion['fk_foto_portada']
+);
+?>
+
+<?php include 'navbar.php'; ?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicación</title>
+    <title>Artículo | Canacintra</title>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="assets/css/styles.css?v=1" as="style">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tiny.cloud/1/ot3ylpkxqs7181mw1rbulmqgqhj5d76f3nj5uu9q23e6se4i/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=1">
     <style>
         .placeholder-img {
             background-color: #e9ecef;
@@ -36,98 +109,8 @@
         }
     </style>
 </head>
-<body>
-    <?php
-    require_once 'vendor/autoload.php';
-    DB::$user = 'root';
-    DB::$password = '';
-    DB::$dbName = 'canacintra';
-    DB::$host = 'localhost';
-    DB::$encoding = 'utf8';
-
-    $publicacion_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-    if ($publicacion_id <= 0) {
-        header('Location: index.php');
-        exit;
-    }
-
-    $publicacion = DB::queryFirstRow("
-        SELECT p.id, p.titulo, p.contenido, p.created, p.fk_foto_portada, p.fk_categoria, p.fk_user,
-               a.ruta AS foto_ruta, c.nombre AS categoria_nombre, u.username AS autor_nombre
-        FROM publicacion p
-        LEFT JOIN archivo a ON p.fk_foto_portada = a.id
-        LEFT JOIN categoria c ON p.fk_categoria = c.id
-        LEFT JOIN user u ON p.fk_user = u.id
-        WHERE p.id = %i AND p.fk_estatu = 2", $publicacion_id
-    );
-    if (!$publicacion) {
-        header('Location: index.php');
-        exit;
-    }
-
-    $relacionados = DB::query("
-        SELECT p.id, p.titulo, a.ruta AS foto_ruta
-        FROM publicacion p
-        LEFT JOIN archivo a ON p.fk_foto_portada = a.id
-        WHERE p.fk_categoria = %i AND p.id != %i AND p.fk_estatu = 2
-        LIMIT 4", $publicacion['fk_categoria'], $publicacion_id
-    );
-
-    $recomendados = DB::query("
-        SELECT p.id, p.titulo, a.ruta AS foto_ruta
-        FROM publicacion p
-        LEFT JOIN archivo a ON p.fk_foto_portada = a.id
-        WHERE p.id != %i AND p.fk_estatu = 2
-        ORDER BY p.created DESC
-        LIMIT 4", $publicacion_id
-    );
-
-    $comentarios = DB::query("
-        SELECT c.id, c.contenido, c.created, u.username AS autor_nombre
-        FROM comentario c
-        LEFT JOIN user u ON c.fk_user = u.id
-        WHERE c.fk_publicacion = %i AND c.fk_estatu = 1
-        ORDER BY c.created DESC", $publicacion_id
-    );
-
-    $adicionales = DB::query("
-        SELECT a.ruta
-        FROM publicacion_archivo pa
-        JOIN archivo a ON pa.fk_archivo = a.id
-        WHERE pa.fk_publicacion = %i AND a.id != %i", $publicacion_id, $publicacion['fk_foto_portada']
-    );
-    ?>
-
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">CANACINTRA</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="categorias.php">Categorías</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sobrenosotros.php">Sobre nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.php">Contáctanos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="iniciar.php"><button class="btn btn-primary">Iniciar sesión</button></a>
-                        <a class="nav-link" href="registro.php"><button class="btn btn-primary">Registrar</button></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container my-4">
+<body class="d-flex flex-column min-vh-100 no-fouc">
+    <div class="container my-4 flex-grow-1">
         <div class="row">
             <div class="col-md-8">
                 <nav aria-label="breadcrumb">
@@ -140,7 +123,8 @@
                 <p class="text-muted">
                     <?= htmlspecialchars($publicacion['autor_nombre']) ?> | 
                     <a href="categorias.php?id=<?= $publicacion['fk_categoria'] ?>"><?= htmlspecialchars($publicacion['categoria_nombre']) ?></a> | 
-                    <?= date('d/m/Y H:i', strtotime($publicacion['created'])) ?>
+                    <?= date('d/m/Y H:i', strtotime($publicacion['created'])) ?> | 
+                    <i class="fas fa-eye"></i> <?= $publicacion['vistas'] ?> vistas
                 </p>
 
                 <?php if ($publicacion['foto_ruta']): ?>
@@ -181,8 +165,12 @@
                 <h3>Comentarios</h3>
                 <div class="mb-3">
                     <form id="commentForm" data-publicacion-id="<?= $publicacion_id ?>">
-                        <textarea class="form-control" id="commentEditor" name="contenido" rows="3" placeholder="Escribe tu comentario"></textarea>
-                        <button type="submit" class="btn btn-purple mt-2">Comentar</button>
+                        <textarea class="form-control" rows="3" placeholder="Escribe tu comentario"></textarea>
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <button type="submit" class="btn btn-purple mt-2">Comentar</button>
+                        <?php else: ?>
+                            <p class="mt-2">Para comentar debes <a href="iniciar.php">iniciar sesión</a>.</p>
+                        <?php endif; ?>
                     </form>
                 </div>
 
@@ -218,55 +206,90 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="mt-auto">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>CANACINTRA</h3>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h3 class="mb-0">CANACINTRA</h3>
                 </div>
-                <div class="col-md-3">
+                <div>
+                    <a href="#" class="text-white me-3">Enlace adicional</a>
+                    <a href="#" class="text-white me-3">Enlace adicional</a>
                     <a href="#" class="text-white">Enlace adicional</a>
                 </div>
-                <div class="col-md-3">
-                    <a href="#" class="text-white">Enlace adicional</a>
-                </div>
-                <div class="col-md-3 text-end">
-                    <p>© CANACINTRA 2025</p>
+                <div>
+                    <small>© CANACINTRA 2025</small>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/ot3ylpkxqs7181mw1rbulmqgqhj5d76f3nj5uu9q23e6se4i/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        tinymce.init({
-            selector: '#commentEditor',
-            plugins: 'autoresize',
-            toolbar: 'bold italic | link',
-            menubar: false,
-            statusbar: false,
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-            autoresize_bottom_margin: 10
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM completamente cargado');
+            if (document.compatMode !== 'CSS1Compat') {
+                console.error('El documento está en modo quirks. Asegúrate de que el DOCTYPE esté correcto: <!DOCTYPE html>');
+                return;
+            }
+            tinymce.init({
+                selector: 'textarea',
+                plugins: 'autoresize',
+                toolbar: 'bold italic | link',
+                menubar: false,
+                statusbar: false,
+                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                autoresize_bottom_margin: 10,
+                setup: (editor) => {
+                    console.log('TinyMCE inicializado para todos los textarea');
+                    editor.on('init', () => {
+                        console.log('Editor TinyMCE listo');
+                    });
+                    editor.on('error', (error) => {
+                        console.error('Error en TinyMCE:', error.message);
+                    });
+                }
+            });
         });
 
+        // Manejar el envío del comentario
         document.getElementById('commentForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            console.log('Formulario enviado');
+
+            // Verificar si el usuario ha iniciado sesión
+            <?php if (!isset($_SESSION['user_id'])): ?>
+                console.log('Usuario no autenticado, no se puede enviar comentario');
+                alert('Debes iniciar sesión para comentar.');
+                return;
+            <?php endif; ?>
+
             const form = e.target;
             const publicacionId = form.dataset.publicacionId;
-            const contenido = tinymce.get('commentEditor').getContent();
+            console.log('ID de publicación:', publicacionId);
+            const contenido = tinymce.activeEditor.getContent();
+            console.log('Contenido del comentario:', contenido);
+
             if (!contenido) {
                 alert('El comentario no puede estar vacío');
+                console.warn('Comentario vacío');
                 return;
             }
 
             try {
+                console.log('Enviando solicitud a guardar_comentario.php');
                 const response = await fetch('guardar_comentario.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: `fk_publicacion=${publicacionId}&contenido=${encodeURIComponent(contenido)}`
                 });
+                console.log('Respuesta recibida:', response.status, response.statusText);
                 const result = await response.json();
+                console.log('Resultado:', result);
+
                 if (result.success) {
+                    console.log('Comentario guardado exitosamente');
                     const commentList = document.getElementById('commentList');
                     const newComment = document.createElement('div');
                     newComment.className = 'comment-box';
@@ -281,13 +304,21 @@
                         </div>
                     `;
                     commentList.prepend(newComment);
-                    tinymce.get('commentEditor').setContent('');
+                    tinymce.activeEditor.setContent('');
                 } else {
                     alert('Error al guardar el comentario: ' + (result.error || 'Desconocido'));
+                    console.error('Error en el servidor:', result.error);
                 }
             } catch (error) {
                 alert('Error en la solicitud: ' + error.message);
+                console.error('Error en fetch:', error);
             }
+        });
+
+        // Eliminar la clase no-fouc después de cargar los estilos
+        window.addEventListener('load', () => {
+            console.log('Estilos cargados, removiendo no-fouc');
+            document.body.classList.remove('no-fouc');
         });
     </script>
 </body>

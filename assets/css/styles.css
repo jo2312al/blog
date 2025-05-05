@@ -1,257 +1,4 @@
-  /* Estilos mínimos para el footer al final */
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-.main-content {
-    flex: 1;
-}
-footer {
-    background-color: #6a2982;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-     /* Category card container */
-      .category-card {
-        background-color: #f0f4f8;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        margin-bottom: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .category-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    /* Highlighted card (Holiday & Travel) */
-    .category-card.highlighted {
-        background-color: #6f42c1;
-        color: white;
-    }
-    /* Category icon */
-    .category-icon {
-        font-size: 2rem;
-        margin-bottom: 10px;
-        color: #6f42c1;
-    }
-    .category-card.highlighted .category-icon {
-        color: white;
-    }
-    /* Category label */
-    .category-label {
-        font-size: 1rem;
-        font-weight: 500;
-    }
-    /* Section background */
-    .categories-section {
-        background-color: #f8f9fa;
-        padding: 40px 0;
-    }
-            /* Placeholder styles */
-            .placeholder-box {
-                background-color: #e0e0e0;
-                height: 150px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #666;
-                font-weight: bold;
-            }
-            .banner-placeholder {
-                background-color: #d4b8ff;
-                height: 200px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                font-size: 1.5rem;
-                position: relative;
-            }
-            .category-box {
-                border: 1px solid #ddd;
-                padding: 10px;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            /* Custom styles to match wireframe */
-            .navbar {
-                background-color: #fff;
-            }
-            .navbar-brand {
-                font-weight: bold;
-            }
-            .btn-primary {
-                background-color: #6f42c1;
-                border-color: #6f42c1;
-            }
-            .category-box img {
-                width: 50px;
-                height: 50px;
-            }
-            .banner-placeholder .carousel-control-prev,
-            .banner-placeholder .carousel-control-next {
-                background: none;
-                border: none;
-                font-size: 2rem;
-                color: white;
-            }
-            .banner-placeholder .carousel-control-prev {
-                left: 10px;
-            }
-            .banner-placeholder .carousel-control-next {
-                right: 10px;
-            }
-            .article-meta {
-                color: #666;
-                font-size: 0.9rem;
-            }
-            .custom-card {
-                max-width: 300px; /* Adjust based on the wireframe size */
-                margin: 0 auto;
-            }
-            /* Placeholder image */
-            .placeholder-image {
-                background-color: #e0e0e0;
-                height: 150px;
-                position: relative;
-                overflow: hidden;
-            }
-            .placeholder-image::before,
-            .placeholder-image::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: 2px;
-                background-color: #ccc;
-            }
-            .placeholder-image::before {
-                left: 0;
-                right: 0;
-                transform: rotate(45deg);
-            }
-            .placeholder-image::after {
-                left: 0;
-                right: 0;
-                transform: rotate(-45deg);
-            }
-            /* Title */
-            .card-title {
-                font-size: 1.1rem;
-                font-weight: 500;
-                margin-top: 10px;
-                margin-bottom: 5px;
-            }
-            /* Metadata */
-            .card-meta {
-                display: flex;
-                align-items: center;
-                font-size: 0.9rem;
-                color: #666;
-            }
-            .card-meta img {
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                margin-right: 10px;
-            }
-            .cat-card {
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                padding: 15px;
-                text-align: center;
-                margin-bottom: 15px;
-                background-color: #fff;
-                transition: box-shadow 0.3s ease;
-            }
-            .cat-card:hover {
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-            /* Category icon */
-            .cat-icon {
-                width: 50px;
-                height: 50px;
-                margin-bottom: 10px;
-            }
-            /* Category label (e.g., "JS") */
-            .cat-label {
-                font-size: 1.2rem;
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
-            /* Category description (e.g., "Javascript") */
-            .cat-description {
-                font-size: 0.9rem;
-                color: #333;
-            }
-            /* Link style for "Todas Las Categorias" */
-            .cat-link {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100%;
-                font-size: 1rem;
-                color: #007bff;
-                text-decoration: none;
-            }
-            .cat-link:hover {
-                text-decoration: underline;
-            }
-            /* Form container */
-.signin-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-/* Logo */
-.logo {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.logo h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-}
-.logo p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-}
-/* Form inputs */
-.form-control {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 15px;
-}
-.form-control:focus {
-    border-color: #6f42c1;
-    box-shadow: 0 0 5px rgba(111, 66, 193, 0.3);
-}
-/* Sign In button */
-.btn-signin {
-    background-color: #6f42c1;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: 500;
-    width: 100%;
-    color: white;
-}
-.btn-signin:hover {
-    background-color: #563d7c;
-}
+/* === Layout === */
 html, body {
     height: 100%;
     margin: 0;
@@ -259,58 +6,250 @@ html, body {
     flex-direction: column;
 }
 
-.main-content {
-    flex: 1; /* Empuja el footer hacia abajo */
+.d-flex.flex-column.min-vh-100 {
+    min-height: 100vh;
 }
-.form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 0;
+
+.main-content,
+.flex-grow-1 {
+    flex: 1;
 }
-.form-control, .form-select {
-    background-color: #f3e5f5;
+
+/* === Prevención de FOUC === */
+.no-fouc {
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
+}
+body:not(.no-fouc) {
+    opacity: 1;
+}
+
+/* === Botones === */
+.btn-custom {
+    background-color: #6f42c1;
+    color: white;
     border: none;
     border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
 }
-.btn-purple {
-    background-color: #6f42c1;
-    border-color: #6f42c1;
+
+.btn-custom:hover {
+    background-color: #5a32a3;
     color: white;
 }
-.btn-purple:hover {
-    background-color: #5a32a3;
-    border-color: #5a32a3;
-}
+
 .btn-light-purple {
     background-color: #e2d6f5;
-    border-color: #e2d6f5;
+    border: none;
     color: #6f42c1;
+    border-radius: 15px;
+    padding: 8px 16px;
+    font-size: 1rem;
+}
+
+/* === Tarjetas de Categorías === */
+.category-card {
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-card.highlighted {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.category-card .category-icon,
+.category-card .cat-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #6f42c1;
+}
+
+.category-card.highlighted .category-icon,
+.category-card.highlighted .cat-icon {
+    color: white;
+}
+
+.category-card .category-label,
+.category-card .cat-label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.category-card .cat-description {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.categories-section {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+/* === Placeholders === */
+.placeholder-img {
+    background-color: #e9ecef;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dee2e6;
+    font-size: 1.2rem;
+    color: #666;
+    position: relative;
+}
+
+.placeholder-img::before,
+.placeholder-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ccc;
+}
+
+.placeholder-img::before {
+    left: 0;
+    right: 0;
+    transform: rotate(45deg);
+}
+
+.placeholder-img::after {
+    left: 0;
+    right: 0;
+    transform: rotate(-45deg);
+}
+
+.banner-placeholder {
+    background-color: #d4b8ff;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.banner-placeholder .carousel-control-prev,
+.banner-placeholder .carousel-control-next {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+
+.banner-placeholder .carousel-control-prev {
+    left: 10px;
+}
+
+.banner-placeholder .carousel-control-next {
+    right: 10px;
+}
+
+/* === Formularios === */
+.form-container,
+.signin-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-control,
+.form-select {
+    background-color: #f3e5f5;
+    border: 2px solid #6f42c1;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    border-color: #5a32a3;
+    box-shadow: 0 0 5px rgba(90, 50, 163, 0.3);
 }
 
 .dropzone {
     background: white;
+    border: 2px dashed #6f42c1;
     border-radius: 5px;
-    border: 2px dashed rgb(0, 135, 247);
-    border-image: none;
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-/* Asegurar que el footer esté al final de la página */
-body {
-    margin: 0; /* Evitar márgenes por defecto */
+    margin: 0 auto;
 }
 
-.d-flex.flex-column.min-vh-100 {
-    min-height: 100vh; /* Altura mínima de la ventana */
+/* === Artículos === */
+.article-meta,
+.card-meta {
+    color: #666;
+    font-size: 0.9rem;
 }
 
-.flex-grow-1 {
-    flex-grow: 1; /* Hacer que el contenido principal crezca */
+.article-meta i {
+    margin-right: 5px;
 }
 
+.article-content {
+    line-height: 1.6;
+}
+
+.comment-box {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.article-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.custom-card {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.card-meta img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* === Navbar === */
+.navbar {
+    background-color: #fff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* === Footer === */
 footer {
-    background-color: #6a2982; /* Color morado del footer */
+    background-color: #6a2982;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -325,7 +264,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Estilos específicos de contacto.php */
+/* === Contacto === */
 .contact-container {
     max-width: 600px;
     margin: 50px auto;
@@ -333,22 +272,42 @@ footer a:hover {
 }
 
 .contact-container h2 {
-    background-color: #a000ff;
+    background-color: #6f42c1;
     color: white;
     display: inline-block;
     padding: 10px 20px;
     border-radius: 5px;
 }
 
-.form-control {
-    border: 2px solid #a000ff;
-    border-radius: 5px;
+/* === Logo === */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.btn-custom {
-    background-color: #a000ff;
-    color: white;
-    border-radius: 20px;
-    padding: 10px 20px;
-    border: none;
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+/* === Enlaces de Categorías === */
+.cat-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1rem;
+    color: #6f42c1;
+    text-decoration: none;
+}
+
+.cat-link:hover {
+    text-decoration: underline;
 }
